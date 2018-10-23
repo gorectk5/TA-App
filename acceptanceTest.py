@@ -44,9 +44,20 @@ class ATDDTESTS(unittest.TestCase):
     pass
   def test_existing_edit_account(self,u,p):
     pass
-  i
+def test_nonexisting_edit_account(self,u,p):
+  self.assertEquals("account does not exist",edit_account("admin2"))
+def test_notifications(self,user,boolean):
+    self.assertEquals(boolean,"false")
+    self.assertEquals("notification was sent", notify_user(user))
+def test_access_data(self):
+  self.assertEquals("supervisor1,admin1,inst1,inst2,inst3,ta1,ta2,ta3",access_data())
+#supiv only
+def test_assign_insturctor(self,inst,course):
+    self.assertEquals("inst was assigned to course", assign_insturctor(inst,course))
+def test_assign_TA_to_course(self,ta):
+    self.assertEquals("TA was assigned to course", assign_TA(inst, course))
   def test_assign_TA_to_lab(self,ta):
-    pass
+      pass
   #instructor
   def test_edit_contact_info_instructor(self,info):
     pass
