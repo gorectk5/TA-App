@@ -44,17 +44,7 @@ class ATDDTESTS(unittest.TestCase):
     pass
   def test_existing_edit_account(self,u,p):
     pass
-  def test_invalid_edit_account(self,u,p):
-    pass
-  def test_notifications(self):
-    pass
-  def test_access_data(self):
-    pass
-  #supiv only
-  def test_assign_insturctor(self,i):
-    pass
-  def test_assign_TA_to_course(self,ta):
-    pass
+  i
   def test_assign_TA_to_lab(self,ta):
     pass
   #instructor
