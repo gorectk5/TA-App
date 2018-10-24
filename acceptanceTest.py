@@ -61,17 +61,17 @@ def test_assign_insturctor(self,inst,course):
     self.assertEquals("inst was assigned to course", assign_insturctor(inst,course))
 def test_assign_TA_to_course(self,ta):
     self.assertEquals("TA was assigned to course", assign_TA(inst, course))
-  def test_assign_TA_to_lab(self,ta):
-      pass
+   def test_assign_TA_to_lab(self,ta):
+      self.assertEquals("TA was assigned to lab", assign_TA_to_lab(inst, lab))
   #instructor
   def test_edit_contact_info_instructor(self,info):
-    pass
+    self.assertEquals("Instructor contact info has been edited", edit_contact_info_instructor(inst, info))
   def test_view_course_assignment(self):
-    pass
+    self.assertEquals("Course assignments are as follows:", view_course_assignment())
   def test_view_ta_assignment(self):
-    pass
+    self.assertEquals("TA assignments are as follows:", view_ta_assignment())
   def test_send_nodifcation_instructor(self):
-    pass
+    self.assertEquals("Instructor has been notified", send_nodifcation_instructor())
   def test_assign_TA_to_lab_instructor(self,ta):
     pass
   def read_PCI_instructor(self):
