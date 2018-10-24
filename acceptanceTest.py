@@ -22,17 +22,22 @@ class ATDDTESTS(unittest.TestCase):
         total_labs = 6
 
 '''Currently in the system there is only 1 account and a new administrator account'''
-  def test_valid_create_account(self,username,password,priority):
-    self.supervisor1.createCourse
-    self.Asserq
+  def test_valid_create_account(self,username,password,priority): 
+      self.assertEquals("Successfully Created Account",create_account("admin","admin",1))
     pass
   def test_existing_create_account(self,u,p):
+      create_account("admin","admin",1)
+      self.assertEquals("Account Already Exists",create_account("admin","admin",1))
     pass
   def test_invalid_create_account(self,u,p):
+    self.assertEquals("Invalid parameters for create account", create_account(5,7,"ten")
     pass
   def test_login_valid_account(self,u,p):
+    create_account("admin","admin",1)
+    self.assertEquals("Sucessfully Logged In",login("admin","admin")
     pass
   def test_login_invalid_account(self,u,p):
+    self.assertEquals("Account does not exist", login("fake account","not real")
     pass
   def test_login_nonexisting_account(self,u,p):
     pass
