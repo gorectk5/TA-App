@@ -1,6 +1,6 @@
 from User import User
 class TASchedulingApp:
-  LoggedInUser = "Null"
+  LoggedInUser = "Null" #Not sure how to do actual Null
   def __init__(self):
     LoggedInUser = "Null"
   
