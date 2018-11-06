@@ -25,6 +25,22 @@ class TASchedulingApp:
       print("Created Account")  
     else:
       print("Invalid command")
+      
+  def editAccount(self, tUsername, nUsername, nPassword, nClearance):
+    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3:
+        file_object = open("Accounts.txt", "r+")
+        lines = file_object.readlines()
+        file_object.seek(0)
+        for i in lines:
+            if tUsername not in i:
+                file_object.write(i)
+            else:
+                file_object.write(nUsername + "," + nPassword + "," + nClearance + "\n")
+        file_object.truncate()
+        file_object.close()
+        print("Edited Account")
+    else:
+        print("Invalid command or insufficient access")
 
   def createCourses(self, uniqId, courseNumber, noOfSections):
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 2:
