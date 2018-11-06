@@ -26,6 +26,13 @@ while Command!="Exit":
       print("Invalid clearance")
 
   elif (Command == "Create Course"):
+    username = input("Username: ")
+    nusername = input("New Username: ")
+    npassword = input("New Password: ")
+    nclearance = input("New Clearance: ")
+    App.editAccount(username, nusername, npassword, nclearance)
+
+  elif (Command == "Create Course"):
     id = input("Enter Unique Course id: ")
     courseNum = input("Enter Course number: ")
     numOfSections = input("Enter Number of sections: ")
@@ -33,6 +40,8 @@ while Command!="Exit":
       App.createCourses(id,courseNum,numOfSections)
     else:
       print("Invalid Clearance")
+
+
 
 
   else:
