@@ -1,4 +1,5 @@
 from User import User
+from Course import Course
 class TASchedulingApp:
   LoggedInUser = "Null" #Not sure how to do actual Null
   def __init__(self):
@@ -25,7 +26,18 @@ class TASchedulingApp:
     else:
       print("Invalid command")
 
-      def assignTA(self,sTA,iCourse,isec):
+  def createCourses(self, uniqId, courseNumber, noOfSections):
+    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 2:
+      course = Course(uniqId, courseNumber, noOfSections)
+      file_object = open("Courses.txt", "a")
+      file_object.write("Course" + "," + courseNumber + "," + "Labs" + noOfSections + "\n")
+      file_object.close()
+      print("Created Course")
+    else:
+      print("Invalid command")
+
+
+  def assignTA(self,sTA,iCourse,isec):
     
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
 
