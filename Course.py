@@ -2,9 +2,9 @@
 class Course:
   uniqId = ""
   courseNumber = ""
-  noOfSections = 0
+  Professor = ""
 
-  def __init__(self, uniqId, courseNumber, noOfSections):
+  def __init__(self, uniqId, courseNumber, Professor):
     self.uniqId = uniqId
     self.courseNumber = courseNumber
-    self.noOfSections = noOfSections
+    self.Professor = Professor

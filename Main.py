@@ -28,9 +28,9 @@ while Command!="Exit":
   elif (Command == "Create Course"):
     id = input("Enter Unique Course id: ")
     courseNum = input("Enter Course number: ")
-    numOfSections = input("Enter Number of sections: ")
-    if clearance == "Supervisor" or clearance == "Administrator":
-      App.createCourses(id,courseNum,numOfSections)
+    Professor = input("Enter Professor Name: ")
+    if App.LoggedInUser.clearance < 3:
+      App.createCourses(id,courseNum,Professor)
     else:
       print("Invalid Clearance")
 

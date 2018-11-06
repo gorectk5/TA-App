@@ -42,11 +42,11 @@ class TASchedulingApp:
     else:
         print("Invalid command or insufficient access")
 
-  def createCourses(self, uniqId, courseNumber, noOfSections):
+  def createCourses(self, uniqId, courseNumber, Professor):
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 2:
-      course = Course(uniqId, courseNumber, noOfSections)
+      course = Course(uniqId, courseNumber, Professor)
       file_object = open("Courses.txt", "a")
-      file_object.write("Course" + "," + courseNumber + "," + "Labs" + noOfSections + "\n")
+      file_object.write(uniqId + "," + courseNumber + "," + Professor + "\n")
       file_object.close()
       print("Created Course")
     else:
