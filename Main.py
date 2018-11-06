@@ -41,7 +41,9 @@ while Command!="Exit":
     else:
       print("Invalid Clearance")
 
-
+  elif Command == "Delete Account":
+    username = input("Username: ")
+    App.deleteAccount(username)
 
 
   else:
