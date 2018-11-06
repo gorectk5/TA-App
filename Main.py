@@ -46,12 +46,11 @@ while Command!="Exit":
     App.deleteAccount(username)
   
   elif (Command == "Create Lab"):
-    icourse=input("Enter Course Number")
-    ilab=input("Enter Lab Number")
-    sTA=input("Enter TA Name")
+    icourse=input("Enter Course Number: ")
+    ilab=input("Enter Lab Number: ")
+    sTA=input("Enter TA Name: ")
     App.createLab(sTA,icourse,ilab)
 
-#py
   else:
     print("Invalid Command")
   Command = input("Command: ")

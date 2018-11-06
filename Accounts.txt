@@ -1,3 +1,2 @@
 Admin,Admin,1
 TA1,TA1,4
-Professor,Professor,4

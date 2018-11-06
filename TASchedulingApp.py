@@ -52,8 +52,7 @@ class TASchedulingApp:
     else:
       print("Invalid command")
 
-
- def createLab(self,sTA,icourse,ilab):
+  def createLab(self,sTA,icourse,ilab):
     
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
 
