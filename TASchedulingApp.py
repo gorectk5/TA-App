@@ -53,33 +53,19 @@ class TASchedulingApp:
       print("Invalid command")
 
 
-  def assignTA(self,sTA,iCourse,isec):
+ def createLab(self,sTA,icourse,ilab):
     
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
 
-      file_object = open("Courses.txt","a+")
-      added = False;
-      for line in file_object:
+      file_object = open("Labs.txt","a")
+      file_object.write(ilab + "," + icourse + "," + sTA + "\n")
+      file_object.close()
+      print("Lab Created")
 
-        curcourse = line.split(",")
-
-        if curcourse[1]==icourse:
-          added=True;
-          for i in curcourse:
-            if curcourse[i] == isec:
-              for x in curcourse:
-                if x  == i:
-                  file_object.write(curcourse[x] + sTA)
-                else:
-                  file_object.write(curcourse[x])
-              print("TA added to lab")
-          if added != True:
-           print("Lab does not exist")
-        else:
-          print("course does not exist")
     else:
 
       print("Invalid command")
+
       
   def deleteAccount(self, sUsername):
     
