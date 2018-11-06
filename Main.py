@@ -25,7 +25,7 @@ while Command!="Exit":
     else:
       print("Invalid clearance")
 
-  elif (Command == "Create Course"):
+  elif (Command == "Edit Account"):
     username = input("Username: ")
     nusername = input("New Username: ")
     npassword = input("New Password: ")
