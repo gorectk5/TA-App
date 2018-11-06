@@ -24,6 +24,20 @@ while Command!="Exit":
       App.createAccount(username,password,4)
     else:
       print("Invalid clearance")
+
+  elif (Command == "Create Course"):
+    id = input("Enter Unique Course id: ")
+    courseNum = input("Enter Course number: ")
+    numOfSections = input("Enter Number of sections: ")
+    if clearance == "Supervisor" or clearance == "Administrator":
+      App.createCourses(id,courseNum,numOfSections)
+    else:
+      print("Invalid Clearance")
+
+
   else:
     print("Invalid Command")
   Command = input("Command: ")
+
+
+
