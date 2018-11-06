@@ -38,15 +38,17 @@ class ATDDTESTS(unittest.TestCase):
   def test_login_invalid_account(self,u,p):
     self.assertEquals("Account does not exist", self.admin1.login("fake account","not real")
     pass
-  def test_login_nonexisting_account(self,u,p):
+   def test_login_nonexisting_account(self,u,p):
+    self.assertRaises(Exception, self.login("supervisor2"))
     pass
   def test_delete_nonexisting_account(self,u,p):
+    self.assertRaises(Exception, self.deleteAccount("supervisor2"))
     pass
   def test_delete_valid_account(self,u,p):
-      pass
-  def test_valid_edit_account(self,u,p):
+    self.assertEquals("account supervisor1 deleted", self.deleteAccount("supervisor1"))
     pass
-  def test_existing_edit_account(self,u,p):
+  def test_valid_edit_account(self,u,p):
+    self.assertEquals("account supervisor1 edited", self.editAccount("supervisor1"))
     pass
 def test_nonexisting_edit_account(self,u,p):
   self.assertEquals("account does not exist",self.admin1.edit_account("admin2"))
