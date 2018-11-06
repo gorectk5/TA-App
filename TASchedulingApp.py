@@ -13,18 +13,22 @@ class TASchedulingApp:
         self.LoggedInUser = User(sUsername,sPassword,int(lsUser[2]))
     if self.LoggedInUser == "Null":
       print("could not login")
+      return False
     else:
       print("Logged In!")
+      return True
 
   def createAccount(self,sUsername,sPassword,iClearance):
-    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
+    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 and sUsername.index(",") == -1 :
       oUser = User(sUsername,sPassword,iClearance)
       file_object = open("Accounts.txt","a")
       file_object.write(sUsername + "," + sPassword + "," + str(iClearance) + "\n")
       file_object.close()
-      print("Created Account")  
+      print("Created Account")
+      return True
     else:
       print("Invalid command")
+      return False
       
   def editAccount(self, tUsername, nUsername, nPassword, nClearance):
     if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3:
