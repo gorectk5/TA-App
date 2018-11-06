@@ -24,3 +24,31 @@ class TASchedulingApp:
       print("Created Account")  
     else:
       print("Invalid command")
+
+      def assignTA(self,sTA,iCourse,isec):
+    
+    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
+
+      file_object = open("Courses.txt","a+")
+      added = False;
+      for line in file_object:
+
+        curcourse = line.split(",")
+
+        if curcourse[1]==icourse:
+          added=True;
+          for i in curcourse:
+            if curcourse[i] == isec:
+              for x in curcourse:
+                if x  == i:
+                  file_object.write(curcourse[x] + sTA)
+                else:
+                  file_object.write(curcourse[x])
+              print("TA added to lab")
+          if added != True:
+           print("Lab does not exist")
+        else:
+          print("course does not exist")
+    else:
+
+      print("Invalid command")
