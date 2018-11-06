@@ -44,6 +44,12 @@ while Command!="Exit":
   elif Command == "Delete Account":
     username = input("Username: ")
     App.deleteAccount(username)
+  
+  elif (Command == "Create Lab"):
+    icourse=input("Enter Course Number")
+    ilab=input("Enter Lab Number")
+    sTA=input("Enter TA Name")
+    App.createLab(sTA,icourse,ilab)
 
 #py
   else:
