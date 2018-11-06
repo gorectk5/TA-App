@@ -80,3 +80,23 @@ class TASchedulingApp:
     else:
 
       print("Invalid command")
+      
+  def deleteAccount(self, sUsername):
+    
+    file_object = open("Accounts.txt", "r")
+    usernames = file_object.readlines()
+    file_object.close()
+    file_object = open("Accounts.txt", "w")
+    deleted = False
+    for line in usernames:
+      user = line.split(",")
+      if(user[0]!=sUsername):
+        file_object.write(line)
+      else:
+        deleted = True
+    if(deleted == False):
+        print("No account " + sUsername + " found")
+        return "No account " + sUsername + " found"
+    else:
+        print("account " + sUsername + " deleted")
+        return "account " + sUsername + " deleted"

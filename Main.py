@@ -40,8 +40,10 @@ while Command!="Exit":
       App.createCourses(id,courseNum,Professor)
     else:
       print("Invalid Clearance")
-#py
 
+  elif Command == "Delete Account":
+    username = input("Username: ")
+    App.deleteAccount(username)
 
 
   else:
