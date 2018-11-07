@@ -68,7 +68,13 @@ class Testcode(unittest.TestCase):
     self.App.LoggedInUser = None
     self.assertFalse(self.App.login(1,None))
 
+  def test_create_course_successful(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertTrue(self.App.createCourses("234", "Example", "rock"))
 
+  def test_create_course_unsuccessful_badClearance(self):
+    self.App.LoggedInUser = User("TA", "TA", 4)
+    self.assertFalse(self.App.createCourses("234", "Example", "rock"))
 
   def test_delete_account_invalid(self):
     self.App.LoggedInUser = User("Admin", "Admin", 1)

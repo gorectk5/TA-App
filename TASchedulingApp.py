@@ -53,8 +53,10 @@ class TASchedulingApp:
       file_object.write(uniqId + "," + courseNumber + "," + Professor + "\n")
       file_object.close()
       print("Created Course")
+      return True
     else:
       print("Invalid command")
+      return False
 
   def createLab(self,sTA,icourse,ilab):
     
