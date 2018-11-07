@@ -12,7 +12,7 @@ class Testcode(unittest.TestCase):
   isec = "1"
   iCourse2 = "431"
   sTA2 = "Jim"
-  App.LoggedInUser is None
+  App.LoggedInUser = None
   def create_lab_invalid_login(self,sTA,iCourse,isec):
     self.assertEqual(App.createlab(sTA,iCourse,isec),"Invalid command")
     App.login(login2,"TA")
@@ -43,13 +43,13 @@ class Testcode(unittest.TestCase):
     self.assertFalse(App.CreateAccount("comma", "normal", "1"))
 
   def login_successful(self):
-    App.LoggedInUser is None
+    App.LoggedInUser = None
     self.assertTrue(App.Login("Admin","Admin"))
   def login_unsuccessful(self):
-    App.LoggedInUser is None
+    App.LoggedInUser = None
     self.assertFalse(App.Login("DoesNotExist", "Admin"))
   def login_bad_input(self):
-    App.LoggedInUser is None
+    App.LoggedInUser = None
     self.assertFalse(App.Login(1,None))
 
 
