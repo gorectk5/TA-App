@@ -83,7 +83,27 @@ class Testcode(unittest.TestCase):
     self.App.LoggedInUser = User("TA", "TA", 4)
     self.assertEquals(self.App.deleteAccount("jack"), "Invalid command")
 
+    #Brandon's
+  def test_edit_user_success(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "Lol", "Admin", "1"), "Edited Account") #should be user that doesn't exist
+  def test_edit_pass_success(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "Admin", "Lol", "1"), "Edited Account") #should be valid password
+  def test_edit_clearance_success(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "Admin", "Lol", "1"), "Edited Account") #should be valid clearance
+  def test_edit_user_fail(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "TA1", "Admin", "1"), "Invalid command or insufficient access") #should be user that does exist
+  def test_edit_pass_fail(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "Admin", "", "1"), "Invalid command or insufficient access") #should be invalid password
+  def test_edit_clearance_fail(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEqual(self.App.editAccount("Admin", "Admin", "Lol", "37"), "Invalid command or insufficient access") #should be invalid clearance
 
+  #tests definitely need some work. I'm having trouble with unit tests.
 
 
 suite = unittest.TestSuite()
