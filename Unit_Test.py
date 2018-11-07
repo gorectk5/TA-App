@@ -91,7 +91,7 @@ class Testcode(unittest.TestCase):
     self.App.LoggedInUser = User("Admin", "Admin", 1)
     file_object = open("Accounts.txt","a")
     file_object.write("bob,bob,2")
-    file_object.close()self.App.createAccount("bob","bob","2")
+    file_object.close()
     self.assertEquals(self.App.deleteAccount("bob"), "account bob deleted")
   def test_delete_account_invalid_clearance(self):
     self.App.LoggedInUser = User("TA", "TA", 4)
