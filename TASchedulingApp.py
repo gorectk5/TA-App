@@ -1,9 +1,9 @@
 from User import User
 from Course import Course
 class TASchedulingApp:
-  LoggedInUser = "Null" #Not sure how to do actual Null
+  LoggedInUser = None
   def __init__(self):
-    LoggedInUser = "Null"
+    LoggedInUser = None
   
   def login(self,sUsername,sPassword):
     file_object = open("Accounts.txt","r")
@@ -11,7 +11,7 @@ class TASchedulingApp:
       lsUser = line.split(",")
       if(lsUser[0]==sUsername and lsUser[1]==sPassword):
         self.LoggedInUser = User(sUsername,sPassword,int(lsUser[2]))
-    if self.LoggedInUser == "Null":
+    if self.LoggedInUser == None:
       print("could not login")
       return False
     else:
@@ -19,7 +19,7 @@ class TASchedulingApp:
       return True
 
   def createAccount(self,sUsername,sPassword,iClearance):
-    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 and sUsername.index(",") == -1 :
+    if self.LoggedInUser is not None and self.LoggedInUser.clearance < 3 and "," not in sUsername and "," not in sPassword and isinstance(iClearance, int):
       oUser = User(sUsername,sPassword,iClearance)
       file_object = open("Accounts.txt","a")
       file_object.write(sUsername + "," + sPassword + "," + str(iClearance) + "\n")
@@ -31,7 +31,7 @@ class TASchedulingApp:
       return False
       
   def editAccount(self, tUsername, nUsername, nPassword, nClearance):
-    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3:
+    if self.LoggedInUser is not None and self.LoggedInUser.clearance < 3:
         file_object = open("Accounts.txt", "r+")
         lines = file_object.readlines()
         file_object.seek(0)
@@ -47,7 +47,7 @@ class TASchedulingApp:
         print("Invalid command or insufficient access")
 
   def createCourses(self, uniqId, courseNumber, Professor):
-    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 2:
+    if self.LoggedInUser is not None and self.LoggedInUser.clearance < 2:
       course = Course(uniqId, courseNumber, Professor)
       file_object = open("Courses.txt", "a")
       file_object.write(uniqId + "," + courseNumber + "," + Professor + "\n")
@@ -58,7 +58,7 @@ class TASchedulingApp:
 
   def createLab(self,sTA,icourse,ilab):
     
-    if self.LoggedInUser != "Null" and self.LoggedInUser.clearance < 3 :
+    if self.LoggedInUser is not None and self.LoggedInUser.clearance < 3 :
 
       file_object = open("Labs.txt","a")
       file_object.write(ilab + "," + icourse + "," + sTA + "\n")
