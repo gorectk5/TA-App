@@ -12,19 +12,20 @@ class Testcode(unittest.TestCase):
   isec = "1"
   iCourse2 = "431"
   sTA2 = "Jim"
-  App.LoggedInUser = None
+  App.LoggedInUser is None
   def create_lab_invalid_login(self,sTA,iCourse,isec):
-    self.assertEqual(App.createlab(sTA,iCourse,isec),"Invalid command")
-    App.login(login2,"TA")
+    self.assertEqual("Invalid command",App.createlab(sTA,iCourse,isec))
+  App.LoggedInUser = User(login2,"TA","4")
   def create_lab_invalid_clearance(self,sTA,iCourse,isec):
-     self.assertEqual(App.createlab(self,sTA,iCourse,isec),"Invalid command")
-  App.login(login,"Admin")
-  def create_lab_successful(self,sTA,iCourse,isec):
-     self.assertEqual(App.createlab(sTA,iCourse,isec),"Lab Created")
+    self.assertEqual("Invalid command",App.createlab(sTA,iCourse,isec))
+  App.LoggedInUser = User(login,"Admin","1")
+  def create_lab_succesful(self,sTA,iCourse,isec):
+    self.assertEqual("Lab Created",App.createlab(sTA,iCourse,isec))
   def create_lab_no_class(self,sTA,iCourse2,isec):
-     self.assertEqual(App.createlab(sTA,iCourse2,isec),"Course does not exist")
-  def create_lab_successful(self,sTA2,iCourse,isec):
-     self.assertEqual(App.createlab(sTA2,iCourse,isec),"TA does not exist")
+    self.assertEqual(App.createlab("Course does not exist",sTA,iCourse2,isec))
+  def create_lab_succesful(self,sTA2,iCourse,isec):
+    self.assertEqual("TA does not exist",App.createlab(sTA2,iCourse,isec))
+  
 
   def create_account_successful(self):
     App.LoggedInUser = User("Admin","Admin","1")
