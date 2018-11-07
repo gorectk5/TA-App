@@ -89,7 +89,9 @@ class Testcode(unittest.TestCase):
     self.assertEquals(self.App.deleteAccount("jack"), "No account jack found")
   def test_delete_account_valid(self):
     self.App.LoggedInUser = User("Admin", "Admin", 1)
-    self.App.createAccount("bob","bob","2")
+    file_object = open("Accounts.txt","a")
+    file_object.write("bob,bob,2")
+    file_object.close()self.App.createAccount("bob","bob","2")
     self.assertEquals(self.App.deleteAccount("bob"), "account bob deleted")
   def test_delete_account_invalid_clearance(self):
     self.App.LoggedInUser = User("TA", "TA", 4)
