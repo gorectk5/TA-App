@@ -1,8 +1,10 @@
 import unittest
+from TASchedulingApp import TASchedulingApp
+from User import User
+
 class Testcode(unittest.TestCase):
 
-  from TASchedulingApp import TASchedulingApp
-  from User import User
+  
   App = TASchedulingApp()
 
   login = "Admin"
@@ -53,7 +55,16 @@ class Testcode(unittest.TestCase):
     App.LoggedInUser = None
     self.assertFalse(App.Login(1,None))
 
-
+  def test_delete_account_invalid(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.assertEquals(self.App.deleteAccount("jack"), "No account jack found")
+  def test_delete_account_valid(self):
+    self.App.LoggedInUser = User("Admin", "Admin", 1)
+    self.App.createAccount("bob","bob","2")
+    self.assertEquals(self.App.deleteAccount("bob"), "account bob deleted")
+  def test_delete_account_invalid_clearance(self):
+    self.App.LoggedInUser = User("TA", "TA", 4)
+    self.assertEquals(self.App.deleteAccount("jack"), "Invalid command")
 
 
 
